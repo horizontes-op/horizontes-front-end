@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
 // import { Features } from "./components/features";
+import Registration  from "./Registration/Registration";
 import { About } from "./components/about";
 import { Services } from "./components/services";
 import { Gallery } from "./components/gallery";
@@ -30,7 +31,7 @@ const App = () => {
       
       <Router>
         <Routes>
-          
+          <Route path="/oportunidades" element={<Registration />} />
           {/* <Route path="/" element={<Home />   } /> */}
           {/* Add more routes for other components if needed */}
           <Route path='/' element={
