@@ -14,11 +14,15 @@ const Oportunidades = (props) => {
                
             {props.oportunidades.map((e, index) => (
                 <div key={index} className='card'>
-                    <h2>{e.nome}</h2>
-                    <p><strong>Modalidade:</strong> {e.modalidade}</p>
-                    <p><strong>Missão:</strong> {e.missao}</p>
-                    <p><strong>Visão:</strong> {e.visao}</p>
-                    <p><strong> Instagram:</strong> {e.perfil_instagram} </p>
+                    <h2>{e.Nome}</h2>
+                    <p><strong>Modalidade:</strong> {e.Modalidade}</p>
+                    <p><strong>Missão:</strong> {e.Missao}</p>
+                    <p><strong>Visão:</strong> {e.Visao}</p>
+                    <p><strong> Descricão:</strong> {e.Descricao} </p>
+                    <p><strong>Área de atuação:</strong> {e.AreaAtuacao}</p>
+                    <p><strong>Redes sociais:</strong> {e.RedesSociais}</p>
+                    <p><strong>Contato:</strong> <a target='_blank' href="{e.ContatoSite}">{e.ContatoSite}</a></p>
+
                 </div>
             ))}
         </div>

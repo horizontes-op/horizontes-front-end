@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./Registration.css";
 import image from '../images/logo.png'
 import Select2 from "../components/Select";
-const Registration = () => {
+import Oportunidades from "../Oportunidades/Oportunidades";
+import LoadingSpinner from "../components/LoadingSpinner";
+const Registration = (props) => {
 
   const [nome, setNome] = useState("")
   const [sobrenome, setSobrenome] = useState("")
@@ -65,23 +67,70 @@ const Registration = () => {
   const handleDisponibilidadeSelect = (selectedOption) => {
     setDisponibilidadeSelected(selectedOption);
   };
+  const [recomendacao, setRecomendacao] = useState(false)
 
-  const handlesubmit = () => {
-    // vai pra /oportunidades
+    const [data, setData] = useState([])
+   const handlesubmitForm = (event) => {
+    event.preventDefault()
+    setRecomendacao(true)
     
-    
-
-  }
-
-
+    fetch('http://localhost:8000/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({"query": JSON.stringify({
+        nome: nome,
+        sobrenome: sobrenome,
+        email: email,
+        genero: generoSelected,
+        data_nascimento: data_nascimento,
+        renda_per_capita: renda_per_capita,
+        cep: cep,
+        escolaridade: escolaridadeSelected,
+        ocupacao: ocupacao,
+        estuda_estudou: estudaEstudouSelected,
+        turno_disponivel: turnoDisponivelSelected,
+        modalidade: modalidadeSelected,
+        disponibilidade: disponibilidadeSelected,
+        busca_oportunidade: buscaOportunidadeSelected,
+        area_interesse: area_interesse,
+        descricao: descricao})
+    })
+    }
+    )
+    .then(response => response.json())
+    .then(data => {
+        // pausa de 2 segundos para simular a busca
+        setTimeout(() => {
+            setData(data['text'])
+            setRecomendacao(true)
+            
+        }, 2000)
+       
+    })
+   }
+  
   const [pag2, setPag2] = useState(false)
   const [pag3, setPag3] = useState(false)
 
  
 
   return (
-    <>
-      <div className="container-logo">
+
+    <>{
+      data.length > 0 && (
+        <Oportunidades oportunidades={data} />
+      )
+    }
+    {
+      recomendacao && data.length == 0 && (
+        <LoadingSpinner mensagem="Dando match com as melhores oportunidades pra você..."></LoadingSpinner>
+      )
+    }
+    {
+      data.length === 0 && !recomendacao && (
+
+        <>
+        <div className="container-logo">
         <a href="/" ><img href="/" className="logo" src={image} alt="logo"/></a>
       </div>
     <div className="container">
@@ -204,7 +253,7 @@ const Registration = () => {
                       </div>
                       
                       <div className="form-group">
-                        <div className="col_ text_right actionButtons">
+                        <div >
                           
 
                           <button
@@ -355,20 +404,15 @@ const Registration = () => {
            
             
             <div >
-              <div className="col_ text_right actionButtons">
+              <div>
                 <button
                 
                   onClick={() => {setPag3(false); setPag2(true) }}
                 >
                   Anterior
                 </button>
-
-                <button
-                
-                
-                >
-                  <a href="/oportunidades" >Cadastrar</a>
-                </button>
+               <button onClick={(e) => handlesubmitForm(e)} >Cadastrar</button> 
+             
               </div>
             </div>
            
@@ -377,10 +421,16 @@ const Registration = () => {
           )
         }
               
-                    </form>
+        </form>
     </div>
-    </>
-  );
-};
+    
+
+          
+        </>
+      ) 
+    }
+</>
+      
+)};
 
 export default Registration;

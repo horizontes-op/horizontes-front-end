@@ -27,7 +27,14 @@ const About = () => {
                     </div>
              
                 </div>
-                <Video></Video>
+
+                <div className='video-container'>
+                    <div className='video-container-intro'>
+                     <Video></Video>
+                    </div>
+                   
+                </div>
+                
                 <div className='about_ultimo'>
                     <div>
                         <img src={image3} alt="Ilustração de globo" />
