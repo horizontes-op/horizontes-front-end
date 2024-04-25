@@ -26,7 +26,14 @@
     height: 500px;
     align-items: center;
     justify-content: center;
-    background-color: rgba(18, 18, 60, 0.9);
+    /* background-color: rgba(18, 18, 60, 0.9); */
+    background: linear-gradient(to bottom, #29294f, #2e3344); /* Substitua com as cores reais */
+
+  }
+  .about-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
   header  h1{
     font-size: 6em;
@@ -71,7 +78,7 @@
 
   header p{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: rgba(249, 115, 22, 0.8);
+    color:white;
     margin-bottom: 30px;
     }
 
@@ -91,34 +98,73 @@
     text-decoration: none;
     color: white;
   }
-  .video-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(14, 14, 89);
-    width: 60%;
-    margin: auto;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
+ 
   .video-container-intro{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(25, 25, 134);
+    
+  
     padding: 10px;
 
 
   }
   video{
-    width: 100%;
+    width: 50%;
    
-    background-color: rgb(21, 21, 118);
+    
   }
+  .about-image{
+    min-width: 100px;
+    max-width: 100px;
+    margin-right: 10em;
+  }
+  .about-text p{
+    padding: 0;
+  }
+
+
+  .about-item {
+    display: flex;
+
+    
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+  
+
 
   .about_ultimo{
     margin-bottom: 100px;
+  }
+
+  .about-section {
+    display: flex;
+    flex-direction: row;
+    background-color:#2e3344 ;
+    color: white;
+    gap: 50px;
+    justify-content: flex-start;
+    
+  
+  }
+  .video-container{
+    width: 50%;
+
+  }
+
+  .video-container-intro{
+    display: flex;
+    width: 100%;
+  }
+  .video-container-intro > video{
+    width: 100%;
   }
 
   footer{
@@ -181,7 +227,12 @@
 
 }
 
+@media screen and (max-width: 1000px) {
+  .video-container{
+    width: 100%;
 
+  }
+}
 
 @media screen and (max-width: 450px) {
   header{
@@ -191,7 +242,9 @@
     height: 400px;
     align-items: center;
     justify-content: center;
-    background-color: rgba(18, 18, 60, 0.9);
+    /* background-color: rgba(18, 18, 60, 0.9); */
+    background: linear-gradient(#29294f, #2e3344);
+
   }
   header h1{
     font-size: 3em;
@@ -217,17 +270,17 @@
 
 
   }
-  video{
+  /* video{
     width: 100%;
     height: 300px;  
     background-color: white !important;
-  }
+  } */
 
 
 
   header p{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: rgba(249, 115, 22, 0.8);
+    color: rgba(255, 255, 255, 0.8);
     }
 
   img{
@@ -323,6 +376,103 @@
   .about_ultimo{
     margin-bottom: 100px;
   }
+  .about-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color:#2e3344 ;
+    gap: 50px;
+    justify-content: flex-start;
+  }
+  .about-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+  }
+
+  .video-container{
+    width: 100%;
+  }
+
+  /* .about-content, .video-container {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+
+.about-item {
+    display: flex;
+    justify-content: start;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.about-image {
+  min-width: 100px;
+  max-width: 100px;
+  margin-right: 1em;
+}
+
+.about-text {
+    text-align: left;
+}
+
+.about-video {
+    width: 100%;
+    max-width: 640px; /* Ajuste conforme necessário */
+}
+.video{
+    width: 100%;
+    height: 100px; 
+    background-color: white !important;
+  
+}
+
+.about-text h2 {
+    color: #007BFF;
+}
+
+.about-text p {
+    font-size: 16px;
+}
+
+/* CSS adicional para o resto da sua seção "Sobre", se necessário */
+
+.header-gradient {
+  background: linear-gradient(to bottom, #29294f, #2e3344); /* Substitua com as cores reais */
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.header-content {
+  margin-bottom: 20px;
+}
+
+.header-cta a {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header-logo {
+  width: 250px;
+  height: 250px;
+  cursor: pointer;
+}
+
+/* CSS adicional para o resto do seu cabeçalho, se necessário */
+
+
+
   
 
   
