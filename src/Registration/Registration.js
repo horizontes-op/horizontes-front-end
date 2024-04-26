@@ -25,7 +25,29 @@ const Registration = (props) => {
 
   // terceira tela
 
+  const validadorDeCampo = (campo) => {
+    if (campo === "") {
+      return false
+    }
+    return true
+  }
 
+  const [dadoCep, setDadoCep] = useState("")
+
+  const verificarCep = (cep) => {
+    fetch(`https://api.postmon.com.br/v1/cep/${cep}`)
+
+      .then(response => response.json())
+      .then(data => {
+        if (data.erro) {
+          setDadoCep("Cep inválido. Um cep de 8 dígitos deve ser fornecido, exemplo: `01001000`")
+        } 
+      })
+  }
+
+  function validarCEP(cep) {
+    return /^[0-9]{5}[0-9]{3}$/.test(cep);
+  }
   const [modalidade, setModalidade] = useState(["Presencial", "Remoto", "Híbrido"])
   const [area_interesse, setArea_interesse] = useState("")
   const [buscaOportunidade, setBuscaOportunidade] = useState(["Acadêmica", "Trabalho", "Extra curricular"])
@@ -70,41 +92,50 @@ const Registration = (props) => {
   const [recomendacao, setRecomendacao] = useState(false)
 
     const [data, setData] = useState([])
-   const handlesubmitForm = (event) => {
+    const handlesubmitForm = (event) => {
     event.preventDefault()
     setRecomendacao(true)
     
-    fetch('http://localhost:8000/search', {
+    fetch('http://3.140.128.237:8080/aluno', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({"query": JSON.stringify({
-        nome: nome,
-        sobrenome: sobrenome,
-        email: email,
-        genero: generoSelected,
-        data_nascimento: data_nascimento,
+      body: JSON.stringify({
+        nome: nome.toString(),
+        sobrenome: sobrenome.toString(),
+        email: email.toString(),
+        genero: generoSelected.toString(),
+        dataNascimento: data_nascimento.toString(),
         renda_per_capita: renda_per_capita,
-        cep: cep,
-        escolaridade: escolaridadeSelected,
-        ocupacao: ocupacao,
-        estuda_estudou: estudaEstudouSelected,
-        turno_disponivel: turnoDisponivelSelected,
-        modalidade: modalidadeSelected,
-        disponibilidade: disponibilidadeSelected,
-        busca_oportunidade: buscaOportunidadeSelected,
-        area_interesse: area_interesse,
-        descricao: descricao})
+        cep: cep.toString(),
+        escolaridade: escolaridadeSelected.toString(),
+        ocupacao: ocupacao.toString(),
+        distancia_em_km: 23,
+        modalidade: modalidadeSelected.toString(),
+        periodo: disponibilidadeSelected.toString(),
+        oportunidade: buscaOportunidadeSelected.toString(),
+        areas_interesse: area_interesse.toString(),
+        descricao: descricao.toString()})
     })
-    }
-    )
+    
     .then(response => response.json())
     .then(data => {
         // pausa de 2 segundos para simular a busca
-        setTimeout(() => {
+        const id_aluno = data['id']
+        fetch(`http:///3.140.128.237:5000/search`,{
+          method: 'POST',
+          body: JSON.stringify({
+            "id_aluno": id_aluno
+          }),
+          headers: { 'Content-Type': 'application/json' }
+        })
+        .then(response => response.json())
+        .then(data => {
+
+            setTimeout(() => {
             setData(data['text'])
             setRecomendacao(true)
             
-        }, 2000)
+        }, 2000)})
        
     })
    }
@@ -258,7 +289,19 @@ const Registration = (props) => {
 
                           <button
                           
-                            onClick={() => setPag2(true)}
+                            onClick={(e) => {
+                              e.preventDefault()
+                              if (!validadorDeCampo(nome) || !validadorDeCampo(sobrenome) || !validadorDeCampo(email) || !validadorDeCampo(data_nascimento) || !validadorDeCampo(renda_per_capita) || !validadorDeCampo(cep) || generoSelected.length === 0) {
+                                alert("Preencha todos os campos")
+                              } else {
+                                if(!validarCEP(cep)){
+                                  alert("Cep inválido. Um cep de 8 dígitos deve ser fornecido, exemplo: `01001000`")
+                                } else {
+
+                                setPag2(true)
+                                }
+                              }
+                            }}
                           >
                             Proximo
                           </button>
@@ -326,7 +369,15 @@ const Registration = (props) => {
 
                           <button
                           
-                            onClick={() => {setPag3(true); setPag2(false)}}
+                            onClick={(e) => {
+                              e.preventDefault()
+                              if (!validadorDeCampo(escolaridadeSelected) || !validadorDeCampo(ocupacao) || !validadorDeCampo(estudaEstudouSelected)) {
+                                alert("Preencha todos os campos")
+                              } else {
+                                  
+                                
+                              setPag3(true); setPag2(false)}}
+                            }
                           >
                             Proximo
                           </button>
@@ -345,7 +396,7 @@ const Registration = (props) => {
                 <label htmlFor="turno_disponivel" >
                   Seu turno disponível 
                 </label>
-                <Select2 placeholder="Selecione uma opção" isMulti={false}  linesSelected ={turnoDisponivelSelected} 
+                <Select2 placeholder="Selecione uma opção" isMulti={true}  linesSelected ={turnoDisponivelSelected} 
                 handleChangeLineSelect={handleTurnoDisponivelSelect} lines ={turnoDisponivel} ></Select2> 
               </div>
               <div  className="form-group">
@@ -354,7 +405,7 @@ const Registration = (props) => {
                 </label>
                   <Select2 placeholder="Selecione uma opção" linesSelected={modalidadeSelected}
                    handleChangeLineSelect={handleModalidadeSelect} 
-                   lines ={modalidade} isMulti = {false} ></Select2>
+                   lines ={modalidade} isMulti = {true} ></Select2>
               </div>
             </div>
             <div  className="form-group">
@@ -407,7 +458,11 @@ const Registration = (props) => {
               <div>
                 <button
                 
-                  onClick={() => {setPag3(false); setPag2(true) }}
+                  onClick={(e) => {
+                    
+                    
+                    e.preventDefault()
+                    setPag3(false); setPag2(true) }}
                 >
                   Anterior
                 </button>
