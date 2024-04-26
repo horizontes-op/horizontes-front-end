@@ -5,8 +5,8 @@ import Video from './Video';
 
 const About = () => {
     return (
-        <div className='about-section'>
-
+        <div className='about-section-container'>
+            <div className='about-section'>
             <div className='video-container'>
             <Video/>
             </div>
@@ -14,11 +14,9 @@ const About = () => {
             
             <div className='about-content'>
             <h1>Como funciona?</h1>
-                <div className='about-item'>
-                    <div>
+            <div className='about-content-intro' >
+            <div className='about-item'>
                     <img src={image1} alt="Ilustração de livro" className='about-image' />
-                    </div>
-                    
                     <div className='about-text'>
                         <h2>Conhecimento</h2>
                         <p>Primeiro, vamos te conhecer de forma detalhada...</p>
@@ -39,8 +37,15 @@ const About = () => {
                         <p>É aqui que a mágica acontece! Traçamos uma relação minuciosa entre suas características e as oportunidades mais coerentes com seu perfil...</p>
                     </div>
                 </div>
-
+                
             </div>
+            <div  className='footer-container'>
+                <p>© 2024 Horizontes, Inc.</p>
+                </div>
+            </div>
+            </div>
+            
+           
         </div>
     );
 }

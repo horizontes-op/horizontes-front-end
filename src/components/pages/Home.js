@@ -7,7 +7,7 @@ import Video from "../Video";
 const Home = () => {
     return (
         <div>
-            <Navbar />
+          
             <Header></Header>
             <About></About>
             <Footer></Footer> 
