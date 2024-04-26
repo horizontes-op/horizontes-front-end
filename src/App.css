@@ -3,7 +3,6 @@
 
 }
 
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,7 +34,7 @@
       display: flex;
       flex-direction: row;
       width: 90%;
-      margin: auto;
+      margin: 20px auto 0 auto;
   }
 
   .footer{
@@ -47,7 +46,7 @@
   .about-content{
     display: flex;
     flex-direction: column;
-   
+    margin-top: 30px;
     
   
   }
@@ -127,7 +126,7 @@
     align-items: center;
     
     width: 600px;
-    padding: 10px;
+    padding:  20px 0;
 
 
   }
@@ -281,6 +280,7 @@
     
     
   }
+  
   .video-container-intro > video{
     width: 90%;
   }
@@ -459,8 +459,9 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-image:linear-gradient( #000000, rgba(25, 25, 81, 0.9) );
+    background-image:linear-gradient( #000000,#2e3344  );
     margin-bottom: 0em;
+    margin-top: 00px;
     
   }
   .footer-container{
@@ -482,12 +483,7 @@
     width: 100%;
   }
 
-  /* .about-content, .video-container {
-    flex: 1; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  } */
+
 
 .about-item {
     display: flex;
@@ -534,7 +530,7 @@
 /* CSS adicional para o resto da sua seção "Sobre", se necessário */
 
 .header-gradient {
-  background: linear-gradient(to bottom, #29294f, #2e3344); /* Substitua com as cores reais */
+  background: linear-gradient(to bottom, #29294f, #2e3344 ); /* Substitua com as cores reais */
   padding: 20px;
   color: #fff;
   text-align: center;

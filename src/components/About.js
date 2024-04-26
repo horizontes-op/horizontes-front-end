@@ -1,6 +1,6 @@
-import image1 from '../images/book-alt.svg';
-import image2 from '../images/comercial.svg';
-import image3 from '../images/globo.svg';
+import image1 from '../images/look-up-svgrepo-com.svg';
+import image2 from '../images/earth-globe-svgrepo-com.svg';
+import image3 from '../images/light-bulb-svgrepo-com.svg';
 import Video from './Video';
 
 const About = () => {
