@@ -29,6 +29,13 @@
 
 .card p {
     margin: 5px 0;
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: justify;
+    
 }
 
 .container_card_card{

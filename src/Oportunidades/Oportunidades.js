@@ -14,14 +14,14 @@ const Oportunidades = (props) => {
                
             {props.oportunidades.map((e, index) => (
                 <div key={index} className='card'>
-                    <h2>{e.Nome}</h2>
-                    <p><strong>Modalidade:</strong> {e.Modalidade}</p>
-                    <p><strong>Missão:</strong> {e.Missao}</p>
-                    <p><strong>Visão:</strong> {e.Visao}</p>
-                    <p><strong> Descricão:</strong> {e.Descricao} </p>
-                    <p><strong>Área de atuação:</strong> {e.AreaAtuacao}</p>
-                    <p><strong>Redes sociais:</strong> {e.RedesSociais}</p>
-                    <p><strong>Contato:</strong> <a target='_blank' href="{e.ContatoSite}">{e.ContatoSite}</a></p>
+                    <h2>{e.Nome == undefined ? e.InstituicaoNome : e.Nome}</h2>
+              
+                    <p style={{justifyContent:"justify"}}><strong style={{color:"rgba(249, 115, 22, 0.6)"}}>Missão:</strong> {e.Missao}</p>
+                    <p><strong style={{color:"rgba(249, 115, 22, 0.6)"}}>Visão:</strong> {e.Visao}</p>
+                    <p><strong style={{color:"rgba(249, 115, 22, 0.6)"}}> Descricão:</strong> {e.Descricao} </p>
+                    <p><strong style={{color:"rgba(249, 115, 22, 0.6)"}}>Área de atuação:</strong> {e.AreaAtuacao}</p>
+                    <p><strong style={{color:"rgba(249, 115, 22, 0.6)"}}>Redes sociais:</strong> {e.RedesSociais}</p>
+                    <p><strong style={{color:"rgba(249, 115, 22, 0.6)"}}>Saiba mais:</strong> <a style={{color:"black", textDecoration:"solid"}} target='_blank' href={"https://" + e.ContatoSite}>{e.ContatoSite}</a></p>
 
                 </div>
             ))}

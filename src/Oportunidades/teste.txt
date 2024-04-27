@@ -1,0 +1,26 @@
+cd ./account
+mvn clean install
+cd ..
+cd ./account-resource
+mvn clean package
+cd ..
+cd ./aluno
+mvn clean install
+cd ..
+cd ./aluno-resource
+mvn clean package
+cd ..
+cd ./auth
+mvn clean install
+cd ..
+cd ./auth-resource
+mvn clean package
+cd ..
+cd ./discovery
+mvn clean install
+cd ..
+cd ./gateway
+mvn clean install
+cd ./docker-compose-deploy
+docker-compose down 
+docker-compose up -d --build
