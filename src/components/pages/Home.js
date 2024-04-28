@@ -3,6 +3,10 @@ import  logo from "../../images/logo-horizontes.PNG"
 import video from "../../video/videoAp.mp4"
 import "../../css/computador/computador.css"
 const Home = () => {
+    const handleClick = (e) => {
+        e.preventDefault();
+        window.location.href = "/formulario";
+    }
     return (
         <div cla ssName="container-body">
             <div className="home-up">
@@ -16,7 +20,7 @@ const Home = () => {
                     <div className="container-btn">
                         <div className="container-btn-intro">
                             <div className="container-btn-encontre-sua-oportunidade">
-                                <button className="btn-encontre-sua-oportunidade">ENCONTRE SUA OPORTUNIDADE</button>
+                                <button onClick={handleClick} className="btn-encontre-sua-oportunidade">ENCONTRE SUA OPORTUNIDADE</button>
                             </div>
                             <div className="sombra-button">
 

@@ -4,7 +4,7 @@ import Select from 'react-select';
 const Select2 = (props) => {
    
   return (
-    <Select className='select2-container'
+    <Select 
         isMulti = {props.isMulti}
         value={props.linesSelected}
         onChange={props.handleChangeLineSelect}
@@ -16,13 +16,7 @@ const Select2 = (props) => {
         isSearchable = {false}
         placeholder= {props.placeholder}
         styles={{
-        menu: (provided, state) => ({
-            ...provided,
-            
-            zIndex: 1, 
-            maxWidth: '400px',
-        
-        }),
+            width: '100%'
 }}
 />
 )

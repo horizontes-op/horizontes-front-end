@@ -3,20 +3,19 @@ import './App.css';
 import Home  from './components/pages/Home';
 import Registration from './Registration/Registration';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Oportunidades from './Oportunidades/Oportunidades';
-import Mocks from "./mock/Mocks";
-
+import Oportunidades from '../src/Oportunidades/Oportunidades'; 
+import React from 'react';
 
 function App() {
  
-  const dados = Mocks();
+  const [matches, setMatches] = React.useState([]);
   return (
     <div className="App">
       <Router>
         <Routes>
           <Route path="/formulario" element={<Registration />} />
           <Route path="/" element={<Home />} />
-          <Route path="/oportunidades" element={<Oportunidades oportunidades={dados} />} />
+          <Route path="/oportunidades" element={<Oportunidades matches={matches} setMatches = {setMatches} />} />
           </Routes>
       </Router>
     </div>
