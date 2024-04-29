@@ -16,7 +16,7 @@ const Oportunidades = (props) => {
         console.log('Avaliação:', estrelas);
         console.log('ID do usuário:', props.id_usuario);
         // Envia o feedback e a avaliação para o servidor
-        fetch( api_recomendacao + '/feedback', {
+        fetch( api_recomendacao + '/feedback/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
