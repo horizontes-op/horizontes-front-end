@@ -132,7 +132,7 @@ const Registration = (props) => {
 
           
             props.setMatches(data['text'])
-            window.location.href = "/oportunidades"
+            // window.location.href = "/oportunidades"
             // setTimeout(() => {
             //    setRecomendacao(true)},2000)
 
