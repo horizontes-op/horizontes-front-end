@@ -6,6 +6,8 @@ import Oportunidades from "../Oportunidades/Oportunidades";
 import LoadingSpinner from "../components/LoadingSpinner";
 import  logo from '../images/logo.png'
 import host from "../constantes"
+import {apialuno, api_recomendacao} from "../constantes"
+
 const Registration = (props) => {
 
   const [nome, setNome] = useState("")
@@ -83,10 +85,11 @@ const Registration = (props) => {
     const handlesubmitForm = (event) => {
       event.preventDefault()
       setPag3(false)
+      setRecomendacao(true)
       
      
     
-    fetch('http://3.140.128.237:8080/aluno', {
+    fetch(apialuno + '/aluno', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -116,8 +119,8 @@ const Registration = (props) => {
     .then(data => {
         // pausa de 2 segundos para simular a busca
         const id_aluno = data['id']
-        setId_usuario(id_aluno)
-        fetch('http://3.140.128.237:5000/search',{
+        props.setId_usuario(id_aluno)
+        fetch(api_recomendacao + '/search',{
           method: 'POST',
           body: JSON.stringify({
             "id_aluno": id_aluno
@@ -128,9 +131,14 @@ const Registration = (props) => {
         .then(data => {
 
           
-            setMatches(data['text'])
+            props.setMatches(data['text'])
+            window.location.href = "/oportunidades"
+            // setTimeout(() => {
+            //    setRecomendacao(true)},2000)
+
             setTimeout(() => {
-               setRecomendacao(true)},2000)
+              window.location.href = "/oportunidades"
+            },2000)
       
             
        })
@@ -145,17 +153,17 @@ const Registration = (props) => {
   return (
       <>
 
-      {
+      {/* {
         !pag2 && !pag3 && !pag1 && !recomendacao && (
           <LoadingSpinner mensagem = "Aguarde enquanto fazemos o match..." ></LoadingSpinner>
         )
-      }
-      {
+      } */}
+      {/* {
         recomendacao && matches.length  && (
         
           <Oportunidades id_usuario = {id_usuario} matches={matches} setMatches = {setMatches} ></Oportunidades>
         )
-      }
+      } */}
     {
       !pag2 && !pag3 && pag1 && (
         <div className="container-registration">
@@ -447,7 +455,13 @@ const Registration = (props) => {
         </div>
       </div>
 
+      
 
+      )
+    }
+    {
+      recomendacao &&(
+        <LoadingSpinner mensagem = "Aguarde enquanto fazemos o match..." ></LoadingSpinner>
       )
     }
  

@@ -4,6 +4,7 @@ import Logo from "../images/logo-horizontes.PNG";
 import LoadingSpinner from '../components/LoadingSpinner';
 import Estrelinhas from '../components/Estrelinhas';
 import host from "../constantes"
+import {apialuno, api_recomendacao} from "../constantes"
 import {useState} from 'react'
 const Oportunidades = (props) => {
     console.log('Oportunidades:', props.matches);
@@ -15,7 +16,7 @@ const Oportunidades = (props) => {
         console.log('Avaliação:', estrelas);
         console.log('ID do usuário:', props.id_usuario);
         // Envia o feedback e a avaliação para o servidor
-        fetch( 'http://3.140.128.237:5000/feedback', {
+        fetch( api_recomendacao + '/feedback', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
