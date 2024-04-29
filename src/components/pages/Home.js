@@ -2,13 +2,19 @@
 import  logo from "../../images/logo-horizontes.PNG"
 import video from "../../video/videoAp.mp4"
 import "../../css/computador/computador.css"
+import "../../css/tablet/tablet-1100-866.css"
+import "../../css/tablet/tablet-866-725.css"
+import "../../css/tablet/tablet-725-500.css"
+import "../../css/celular/celular-500-400.css"
+import "../../css/celular/celular-400-350.css"
+import "../../css/celular/celular-350-300.css"
 const Home = () => {
     const handleClick = (e) => {
         e.preventDefault();
         window.location.href = "/formulario";
     }
     return (
-        <div cla ssName="container-body">
+        <div className="container-body">
             <div className="home-up">
                 <div className="home-up-container">
                     <div className="imagem-logo">
@@ -23,7 +29,6 @@ const Home = () => {
                                 <button onClick={handleClick} className="btn-encontre-sua-oportunidade">ENCONTRE SUA OPORTUNIDADE</button>
                             </div>
                             <div className="sombra-button">
-
                             </div>
                         </div>
                     </div>

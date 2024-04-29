@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlineLoading } from 'react-icons/ai';
-
+import './LoadingSpinner.css';
 
 const LoadingSpinner = ({mensagem}) => {
   return (
