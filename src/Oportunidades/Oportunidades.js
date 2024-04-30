@@ -60,14 +60,14 @@ const   Oportunidades = (props) => {
                     {/* {JSON.stringify(props.matches)} */}
                     {props.matches.map((e, index) => (
                         <div key={index} className='card'>
-                            <h2>{e.nome == undefined ? e.InstituicaoNome : e.nome}</h2>
+                            <h2>{e.nome == undefined ? e.InstituicaoNome.toString() : e.nome.toString()}</h2>
                     
-                            <p style={{justifyContent:"justify"}}><strong>Missão:</strong> {e.missao}</p>
-                            <p><strong>Visão:</strong> {e.visao}</p>
-                            <p><strong> Descricão:</strong> {e.descricao} </p>
-                            <p><strong>Área de atuação:</strong> {e.area_atuacao}</p>
-                            <p><strong>Redes sociais:</strong> {e.redes_sociais}</p>
-                            <p><strong>Saiba mais:</strong> <a style={{color:"black", textDecoration:"solid"}} target='_blank' href={ (e.contato_site.includes("http") || e.contato_site.includes("https"))?  e.contato_site:  "https://" + e.contato_site }>{e.contato_site}</a></p>
+                            <p style={{justifyContent:"justify"}}><strong>Missão:</strong> {e.missao.toString()}</p>
+                            <p><strong>Visão:</strong> {e.visao.toString()}</p>
+                            <p><strong> Descricão:</strong> {e.descricao.toString()} </p>
+                            <p><strong>Área de atuação:</strong> {e.area_atuacao.toString()}</p>
+                            <p><strong>Redes sociais:</strong> {e.redes_sociais.toString() }</p>
+                            <p><strong>Saiba mais:</strong> <a style={{color:"black", textDecoration:"solid"}} target='_blank' href={ (e.contato_site.includes("http") || e.contato_site.includes("https"))?  e.contato_site.toString():  "https://" + e.contato_site }>{e.contato_site.toString()}</a></p>
         
                         </div>
                     ))}
