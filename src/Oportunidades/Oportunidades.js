@@ -6,7 +6,7 @@ import Estrelinhas from '../components/Estrelinhas';
 import host from "../constantes"
 import {apialuno, api_recomendacao} from "../constantes"
 import {useState} from 'react'
-const Oportunidades = (props) => {
+const   Oportunidades = (props) => {
     console.log('Oportunidades:', props.matches);
     const [feedback, setFeedback] = useState(''); // Estado para armazenar o feedback do usuário
     const [estrelas, setEstrelas] = useState(0);

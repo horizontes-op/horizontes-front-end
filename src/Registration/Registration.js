@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { navigate, useNavigate } from 'react-router-dom';
 import "./Registration.css";
 import image from '../images/logo.png'
 import Select2 from "../components/Select";
@@ -9,7 +10,8 @@ import host from "../constantes"
 import {apialuno, api_recomendacao} from "../constantes"
 
 const Registration = (props) => {
-
+  
+  const navigate = useNavigate()
   const [nome, setNome] = useState("")
   const [sobrenome, setSobrenome] = useState("")
   const [email, setEmail] = useState("")
@@ -131,14 +133,16 @@ const Registration = (props) => {
         .then(data => {
 
           
-            props.setMatches(data['text'])
-            // window.location.href = "/oportunidades"
-            // setTimeout(() => {
-            //    setRecomendacao(true)},2000)
+            // props.setMatches(data['text'])
+            // // window.location.href = "/oportunidades"
+            // // setTimeout(() => {
+            // //    setRecomendacao(true)},2000)
 
-            setTimeout(() => {
-              window.location.href = "/oportunidades"
-            },2000)
+            // setTimeout(() => {
+            //   window.location.href = "/oportunidades"
+            // },2000)
+            props.setMatches(data['text']);
+            navigate('/oportunidades')
       
             
        })
