@@ -453,7 +453,7 @@ const Registration = (props) => {
                     Descrição
                   </label>
                   <div  className="text-area">
-                    <textarea onChange={e => handleDescricao(e.target.value)} placeholder="Ex: Gosto de estudar e meu hobby preferido é cozinhar  ">
+                    <textarea onChange={e => handleDescricao(e.target.value)} placeholder="Insira aqui informações sobre o que você gosta e sobre o que almeja para o seu futuro. quanto mais informações, melhor">
                     </textarea>
                   </div>
                 </div>
