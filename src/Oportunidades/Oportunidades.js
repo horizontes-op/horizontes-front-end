@@ -60,15 +60,14 @@ const   Oportunidades = (props) => {
                     {/* {JSON.stringify(props.matches)} */}
                     {props.matches.map((e, index) => (
                         <div key={index} className='card'>
-                            <h2>{e.nome == undefined ? e.InstituicaoNome.toString() : e.nome.toString()}</h2>
+                          <h2>{e.nome === undefined ? (e.InstituicaoNome ? e.InstituicaoNome.toString() : '') : e.nome.toString()}</h2>
+                            <p style={{ justifyContent: "justify" }}><strong>Missão:</strong> {typeof e.missao === 'object' ? JSON.stringify(e.missao) : (e.missao ? e.missao.toString() : '')}</p>
+                            <p><strong>Visão:</strong> {typeof e.visao === 'object' ? JSON.stringify(e.visao) : (e.visao ? e.visao.toString() : '')}</p>
+                            <p><strong> Descricão:</strong> {typeof e.descricao === 'object' ? JSON.stringify(e.descricao) : (e.descricao ? e.descricao.toString() : '')} </p>
+                            <p><strong>Área de atuação:</strong> {typeof e.area_atuacao === 'object' ? JSON.stringify(e.area_atuacao) : (e.area_atuacao ? e.area_atuacao.toString() : '')}</p>
+                            {/* <p><strong>Redes sociais:</strong> {Array.isArray(e.redes_sociais) ? e.redes_sociais.join(', ') : (typeof e.redes_sociais === 'object' ? JSON.stringify(e.redes_sociais) : (e.redes_sociais ? e.redes_sociais.toString() : ''))}</p> */}
+                            <p><strong>Saiba mais:</strong> <a style={{ color: "black", textDecoration: "solid" }} target='_blank' href={(e.contato_site && (e.contato_site.includes("http") || e.contato_site.includes("https"))) ? e.contato_site.toString() : "https://" + (e.contato_site ? e.contato_site.toString() : '')}>{e.contato_site ? e.contato_site.toString() : ''}</a></p>
                     
-                            <p style={{justifyContent:"justify"}}><strong>Missão:</strong> {e.missao.toString()}</p>
-                            <p><strong>Visão:</strong> {e.visao.toString()}</p>
-                            <p><strong> Descricão:</strong> {e.descricao.toString()} </p>
-                            <p><strong>Área de atuação:</strong> {e.area_atuacao.toString()}</p>
-                            <p><strong>Redes sociais:</strong> {e.redes_sociais.toString() }</p>
-                            <p><strong>Saiba mais:</strong> <a style={{color:"black", textDecoration:"solid"}} target='_blank' href={ (e.contato_site.includes("http") || e.contato_site.includes("https"))?  e.contato_site.toString():  "https://" + e.contato_site }>{e.contato_site.toString()}</a></p>
-        
                         </div>
                     ))}
                 </div>

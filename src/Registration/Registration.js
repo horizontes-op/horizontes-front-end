@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { navigate, useNavigate } from 'react-router-dom';
 import "./Registration.css";
 import image from '../images/logo.png'
@@ -153,7 +153,16 @@ const Registration = (props) => {
   const [pag2, setPag2] = useState(false)
   const [pag3, setPag3] = useState(false)
   const [pag1, setPag1] = useState(true)
-  console.log(matches)
+  useEffect(() => {
+    const confirmUnload = (e) => {
+        e.preventDefault();
+        e.returnValue = 'Se você recarregar, perderá as informações preenchidas'; // Mensagem opcional, alguns navegadores não suportam.
+    };
+
+    window.addEventListener('beforeunload', confirmUnload);
+
+    return () => window.removeEventListener('beforeunload', confirmUnload);
+}, []);
   return (
       <>
 
@@ -248,7 +257,7 @@ const Registration = (props) => {
                     
                       <div className="form-group">
                         <label htmlFor="renda_per_capita" >
-                          Renda per capita (em reais)
+                          Renda per capita (em reais) <span  onClick={e =>  alert("Renda per capita é a divisão da renda total de uma família pelo número de pessoas que compõem essa família.")} className="saiba-mais" >?</span>
                         </label>
                         <input
                           id="renda_per_capita"
@@ -305,7 +314,10 @@ const Registration = (props) => {
       pag2 && (
         <div className="container-registration">
         <div className="container-logo">
-          <img src={image} alt="logo" className="logo" />
+          <img  onClick={e => {
+            e.preventDefault();
+            window.location.href = "/";
+          }} src={image} alt="logo" className="logo" />
         </div> 
         <div className="container-message">
           <h2>Agora queremos saber informações </h2>
@@ -377,7 +389,10 @@ const Registration = (props) => {
       pag3 && (
         <div className="container-registration">
         <div className="container-logo">
-          <img src={image} alt="logo" className="logo" />
+          <img  onClick={e => {
+            e.preventDefault();
+            window.location.href = "/";
+          }} src={image} alt="logo" className="logo" />
         </div> 
         <div className="container-message">
           <h2>Agora vamos entender seus interesses</h2>
@@ -392,22 +407,22 @@ const Registration = (props) => {
                     <label htmlFor="turno_disponivel" >
                       Seu turno disponível 
                     </label>
-                    <Select2 placeholder="Selecione uma opção" isMulti={true}  linesSelected ={turnoDisponivelSelected} 
+                    <Select2 placeholder="Selecione uma ou mais opções" isMulti={true}  linesSelected ={turnoDisponivelSelected} 
                     handleChangeLineSelect={handleTurnoDisponivelSelect} lines ={turnoDisponivel} ></Select2> 
                 </div>
                 <div  className="form-group">
                     <label htmlFor="modalidade`" >
                      Modalidade
                     </label>
-                      <Select2 placeholder="Selecione uma opção" linesSelected={modalidadeSelected}
+                      <Select2 placeholder="Selecione uma ou mais opções" linesSelected={modalidadeSelected}
                        handleChangeLineSelect={handleModalidadeSelect} 
                        lines ={modalidade} isMulti = {true} ></Select2>
                 </div>
                 <div  className="form-group">
-                    <label htmlFor="disponibilidade" >
+                    <label className="label-patinho-feio" htmlFor="disponibilidade" >
                      Tenho interesse em oportunidades que estejam...
                     </label>
-                      <Select2 placeholder="Selecione uma opção" linesSelected={disponibilidadeSelected}
+                      <Select2 placeholder="Selecione uma ou mais opções" linesSelected={disponibilidadeSelected}
                        handleChangeLineSelect={handleDisponibilidadeSelect} 
                        lines ={disponibilidade} isMulti = {true} ></Select2>
                 </div>
@@ -415,7 +430,7 @@ const Registration = (props) => {
                     <label htmlFor="busca_oportunidade`" >
                      Busco uma oportunidade...
                     </label>
-                      <Select2 placeholder="Selecione uma opção" linesSelected={buscaOportunidadeSelected}
+                      <Select2 placeholder="Selecione uma ou mais opções" linesSelected={buscaOportunidadeSelected}
                        handleChangeLineSelect={handleBuscaOportunidadeSelect} 
                        lines ={buscaOportunidade} isMulti = {true} ></Select2>
                 </div>

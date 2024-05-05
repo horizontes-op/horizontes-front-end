@@ -12,11 +12,16 @@ const Select2 = (props) => {
         options={ props.lines.map(item => {
             return {value: item, label : item }
         }) }
-        hideSelectedOptions={false}
+        hideSelectedOptions={true}
         isSearchable = {false}
         placeholder= {props.placeholder}
         styles={{
-            width: '100%'
+            width: '100%',
+            placeholder: (base) => ({
+                ...base,
+                
+                fontSize: '14px'
+            }),
 }}
 />
 )

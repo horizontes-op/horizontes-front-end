@@ -11,6 +11,14 @@
   width: 300px;
   cursor: pointer;
 }
+.saiba-mais{
+ color: var(--cor-azul-escuro);
+ text-decoration: underline;
+  cursor: pointer;
+}
+.saiba-mais:hover{
+  color: var(--cor-azul-claro);
+} 
 
 .container-message{
   display: flex;
@@ -114,6 +122,7 @@ textarea{
   border: 1px solid var(--cor-azul-escuro);
   padding: 10px;
   box-sizing: border-box;
+  font-family: Quicksand, sans-serif;
 }
 
 .btn-container{
@@ -244,6 +253,9 @@ textarea{
     text-align: center;
     margin: 0 ;
   }
+  .label-patinho-feio{
+    font-size: 17px !important;
+  }
 
 }
 
@@ -264,6 +276,7 @@ textarea{
     max-width: 1000px;
    box-sizing: border-box;
   }
+  
   .data{
     display: flex;
     flex-direction: column;
