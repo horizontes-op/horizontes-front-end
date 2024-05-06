@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.07602184.css",
-    "main.js": "/static/js/main.e2e07f88.js",
+    "main.js": "/static/js/main.d9a231f3.js",
     "static/js/453.2498f86c.chunk.js": "/static/js/453.2498f86c.chunk.js",
-    "static/media/Horizontes.mov": "/static/media/Horizontes.7cdca090331e5a1c5815.mov",
+    "static/media/Horizontes_legenda.mov": "/static/media/Horizontes_legenda.056c6b169d4e66add312.mov",
     "static/media/logo.png": "/static/media/logo.290a2c8762ce62d4a554.png",
     "static/media/logo-horizontes.PNG": "/static/media/logo-horizontes.7d7639a9782cf67fc316.PNG",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
     "main.07602184.css.map": "/static/css/main.07602184.css.map",
-    "main.e2e07f88.js.map": "/static/js/main.e2e07f88.js.map",
+    "main.d9a231f3.js.map": "/static/js/main.d9a231f3.js.map",
     "453.2498f86c.chunk.js.map": "/static/js/453.2498f86c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.07602184.css",
-    "static/js/main.e2e07f88.js"
+    "static/js/main.d9a231f3.js"
   ]
 }

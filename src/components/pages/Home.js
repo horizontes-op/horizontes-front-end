@@ -1,6 +1,6 @@
 
 import  logo from "../../images/logo-horizontes.PNG"
-import video from "../../video/Horizontes.mov"
+import video from "../../video/Horizontes_legenda.mov"
 import "../../css/computador/computador.css"
 import "../../css/tablet/tablet-1100-866.css"
 import "../../css/tablet/tablet-866-725.css"

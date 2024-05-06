@@ -44,7 +44,7 @@ const Registration = (props) => {
   
   const [modalidade, setModalidade] = useState(["Presencial", "Remoto", "Híbrido"])
   const [area_interesse, setArea_interesse] = useState("")
-  const [buscaOportunidade, setBuscaOportunidade] = useState(["Acadêmica", "Trabalho", "Extra curricular"])
+  const [buscaOportunidade, setBuscaOportunidade] = useState(["Acadêmica",  "Extra curricular"])
   const [descricao, setDescricao] = useState("")
   const [turnoDisponivel, setTurnoDisponivel] = useState(["Manhã", "Tarde", "Noite"]);
   const [disponibilidade, setDisponibilidade] = useState(["Na mesma cidade", "No mesmo estado", "Em outro estado", "No mesmo país", "Em outro país"]);
