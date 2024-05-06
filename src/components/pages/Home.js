@@ -106,8 +106,10 @@ const Home = () => {
                 </div>
                 </div>
                 <div className="footer">
+                    
+                
                     <p>
-                        @2024 Horizontes, Inc.  
+                        @2024 Horizontes, Inc.  <a href="https://www.instagram.com/projetohorizontes_edu?utm_source=qr&igsh=c3pobWlqYmlqcXIw"> @Instagram</a>
                     </p>
                  
                 </div>
